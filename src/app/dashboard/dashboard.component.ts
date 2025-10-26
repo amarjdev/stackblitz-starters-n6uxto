@@ -4,7 +4,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-
+import {ImagePickerComponent} from '../core/components/app-image-picker.component'
+import {CameraComponent} from '../core/components/app-camera.component'
 @Component({
   selector: 'app-dashboard',
   standalone: true,
@@ -13,7 +14,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatToolbarModule,
     MatListModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    CameraComponent
   ],
   template: `
     <mat-sidenav-container class="sidenav-container">
@@ -41,8 +43,8 @@ import { MatButtonModule } from '@angular/material/button';
           <span>Dashboard</span>
         </mat-toolbar>
         <div class="content">
-          <h2>Welcome to Dashboard</h2>
-          <p>Select an option from the menu to get started.</p>
+          <h2>Spending Tracker</h2>
+          <app-camera></app-camera>
         </div>
       </mat-sidenav-content>
     </mat-sidenav-container>
