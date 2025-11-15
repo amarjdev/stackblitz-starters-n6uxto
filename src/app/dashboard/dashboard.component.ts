@@ -4,6 +4,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { ImagePickerComponent } from '../core/components/image-picker.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,7 +14,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatToolbarModule,
     MatListModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    ImagePickerComponent
   ],
   template: `
     <mat-sidenav-container class="sidenav-container">
@@ -42,6 +44,7 @@ import { MatButtonModule } from '@angular/material/button';
         </mat-toolbar>
         <div class="content">
           <h2>Spending Tracker</h2>
+          <app-image-picker></app-image-picker>
         </div>
       </mat-sidenav-content>
     </mat-sidenav-container>
