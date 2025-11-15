@@ -5,6 +5,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { ImagePickerComponent } from '../core/components/image-picker.component';
+import { CameraCaptureComponent } from '../core/components/camera-capture.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,7 +16,8 @@ import { ImagePickerComponent } from '../core/components/image-picker.component'
     MatListModule,
     MatIconModule,
     MatButtonModule,
-    ImagePickerComponent
+    ImagePickerComponent,
+    CameraCaptureComponent
   ],
   template: `
     <mat-sidenav-container class="sidenav-container">
@@ -44,7 +46,16 @@ import { ImagePickerComponent } from '../core/components/image-picker.component'
         </mat-toolbar>
         <div class="content">
           <h2>Spending Tracker</h2>
-          <app-image-picker></app-image-picker>
+          <div class="controls-row">
+            <div class="control-section">
+              <h3>Upload from Gallery</h3>
+              <app-image-picker></app-image-picker>
+            </div>
+            <div class="control-section">
+              <h3>Capture with Camera</h3>
+              <app-camera-capture></app-camera-capture>
+            </div>
+          </div>
         </div>
       </mat-sidenav-content>
     </mat-sidenav-container>
@@ -63,6 +74,24 @@ import { ImagePickerComponent } from '../core/components/image-picker.component'
       position: sticky;
       top: 0;
       z-index: 1;
+    }
+    .controls-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 20px;
+    }
+    .control-section h3 {
+      margin-top: 0;
+      margin-bottom: 16px;
+      color: #333;
+      font-size: 16px;
+      font-weight: 500;
+    }
+    @media (max-width: 900px) {
+      .controls-row {
+        grid-template-columns: 1fr;
+      }
     }
   `]
 })
